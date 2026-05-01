@@ -1,38 +1,94 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
   <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="description" content="M Daddy — E-commerce POS · Sales · Inventory · Insights">
 
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="e_commerce_pos_sale">
+  <meta name="apple-mobile-web-app-title" content="M Daddy — E-commerce POS">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>e_commerce_pos_sale</title>
+  <title>M Daddy — E-commerce POS</title>
   <link rel="manifest" href="manifest.json">
+
+  <!--
+    Brand color matches the splash so there is NO white flash between
+    the browser load and the first Flutter frame.
+    Also enforces the desktop minimum size: 1080 x 600.
+  -->
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-width: 1080px;
+      min-height: 600px;
+      background: #ECFDF5;
+    }
+    @media (prefers-color-scheme: dark) {
+      html, body { background: #050813; }
+    }
+    /* Loading splash — same gradient and pulse as the Flutter splash */
+    #loading {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, #ECFDF5, #D1FAE5, #CCFBF1);
+      z-index: 9999;
+      transition: opacity 400ms ease;
+    }
+    @media (prefers-color-scheme: dark) {
+      #loading { background: linear-gradient(180deg, #050813, #070B1A, #0A1024); }
+    }
+    #loading.fade-out { opacity: 0; pointer-events: none; }
+    #loading .badge {
+      width: 96px; height: 96px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, #10B981, #10B981cc);
+      box-shadow: 0 24px 60px -10px rgba(16,185,129,0.5);
+      display: flex; align-items: center; justify-content: center;
+      animation: float 3s ease-in-out infinite;
+    }
+    @media (prefers-color-scheme: dark) {
+      #loading .badge {
+        background: linear-gradient(135deg, #34D399, #34D399cc);
+        box-shadow: 0 24px 60px -10px rgba(52,211,153,0.65);
+      }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50%      { transform: translateY(-6px) scale(1.04); }
+    }
+  </style>
 </head>
 <body>
+  <div id="loading">
+    <div class="badge">
+      <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 3v18h18"/>
+        <path d="M7 14l4-4 3 3 5-6"/>
+      </svg>
+    </div>
+  </div>
+
   <script src="flutter_bootstrap.js" async></script>
+  <script>
+    window.addEventListener('flutter-first-frame', function () {
+      const el = document.getElementById('loading');
+      if (el) {
+        el.classList.add('fade-out');
+        setTimeout(() => el.remove(), 400);
+      }
+    });
+  </script>
 </body>
 </html>

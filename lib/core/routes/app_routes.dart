@@ -5,5 +5,6 @@ abstract class Routes {
   static const unknown404 =  '/404';
   static const landingScreen = '/landingScreen';
   static const splashScreen = '/splashScreen';
+  static const auth = '/auth';
 
  }

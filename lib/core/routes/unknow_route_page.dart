@@ -8,7 +8,7 @@ class Unknown404Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: whiteColor.withValues(alpha: 0.5),
+      backgroundColor: accentLight.withValues(alpha: 0.5),
       body: OrientationBuilder(
         builder: (context, orientation) {
           return Container(
@@ -27,8 +27,6 @@ class Unknown404Screen extends StatelessWidget {
                     fit: BoxFit.contain,
                   ),
                 ),
-                const SizedBox(height: 20,),
-                defaultLoader(),
                 const SizedBox(height: 15,),
                 Text(
                     "Page not found",

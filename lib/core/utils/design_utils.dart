@@ -1,7 +1,4 @@
-import 'dart:convert';
-import 'dart:io';
 import 'dart:math';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -22,3 +19,4 @@ part 'theme.dart';
 part 'shared_preferences_files.dart';
 part 'app_date_time_convert_methods.dart';
 part 'permission_keys.dart';
+part 'app_sizes.dart';

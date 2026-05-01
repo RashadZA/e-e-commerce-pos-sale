@@ -2,10 +2,12 @@ import 'package:e_commerce_pos_sale/core/API/Service/api_call.dart';
 import 'package:e_commerce_pos_sale/core/API/Service/api_repositories.dart';
 import 'package:e_commerce_pos_sale/core/controller/theme_controller.dart';
 import 'package:e_commerce_pos_sale/core/routes/unknow_route_page.dart';
-import 'package:e_commerce_pos_sale/modules/startUp/controllers/landing_screen_controller.dart';
-import 'package:e_commerce_pos_sale/modules/startUp/controllers/splash_screen_controller.dart';
-import 'package:e_commerce_pos_sale/modules/startUp/presentation/screens/landing_screen.dart';
-import 'package:e_commerce_pos_sale/modules/startUp/presentation/screens/splash_screen.dart';
+import 'package:e_commerce_pos_sale/modules/startUp/controllers/auth_controller.dart';
+import 'package:e_commerce_pos_sale/modules/startUp/controllers/onboarding_controller.dart';
+import 'package:e_commerce_pos_sale/modules/startUp/controllers/splash_controller.dart';
+import 'package:e_commerce_pos_sale/modules/startUp/presentation/screens/auth_view.dart';
+import 'package:e_commerce_pos_sale/modules/startUp/presentation/screens/onboarding_view.dart';
+import 'package:e_commerce_pos_sale/modules/startUp/presentation/screens/splash_view.dart';
 import 'package:get/get.dart';
 
 part 'app_routes.dart';
@@ -18,18 +20,26 @@ class AppPages {
   static final List<GetPage<dynamic>> routes = [
     GetPage(
       name: Routes.splashScreen,
-      page: () => const SplashScreen(),
+      page: () => const SplashView(),
       transition: Transition.cupertino,
       binding: BindingsBuilder(
-            () => Get.lazyPut<SplashScreenController>(() => SplashScreenController(),fenix: true,),
+            () => Get.lazyPut<SplashController>(() => SplashController(),fenix: true,),
       ),
     ),
     GetPage(
       name: Routes.landingScreen,
-      page: () => const LandingScreen(),
+      page: () => const OnboardingView(),
       transition: Transition.cupertino,
       binding: BindingsBuilder(
-            () => Get.lazyPut<LandingScreenController>(() => LandingScreenController(),fenix: true,),
+            () => Get.lazyPut<OnboardingController>(() => OnboardingController(),fenix: true,),
+      ),
+    ),
+    GetPage(
+      name: Routes.auth,
+      page: () => const AuthView(),
+      transition: Transition.cupertino,
+      binding: BindingsBuilder(
+            () => Get.lazyPut<AuthController>(() => AuthController(),fenix: true,),
       ),
     ),
   ];

@@ -3,8 +3,6 @@ import 'package:get/get.dart';
 import 'package:e_commerce_pos_sale/core/API/Service/api_repositories.dart';
 import 'package:e_commerce_pos_sale/core/controller/theme_controller.dart';
 import 'package:e_commerce_pos_sale/core/routes/app_pages.dart';
-import 'package:e_commerce_pos_sale/core/utils/design_utils.dart';
-// import 'package:cms/modules/main/clinic/models/clinic_response_model.dart';
 
 class SplashScreenController extends GetxController with WidgetsBindingObserver{
 
